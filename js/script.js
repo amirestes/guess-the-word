@@ -27,4 +27,21 @@ guessLetterButton.addEventListener("click", function(e) {
     const catchLetter = letterInput.value; //assigns the inputted value to an object value
     console.log(catchLetter); //logs out the value saved in catchLetter
     letterInput.value = ""; //resets the form value to empty
+    validateInput();
 });
+
+//add a regular function to check if the input is a letter and only inputs one letter
+
+const validateInput = function (input) {
+    const acceptedLetter = /[a-zA-Z]/;
+    if ( letterInput === "") {
+        console.log("Please enter a guess");
+    } else if ( letterInput !== word.match(acceptedLetter) ) {
+        console.log("Letter not in the word");
+    } else {
+        return letterInput;
+    }
+};
+
+
+//add a function that captures the player's guess to see if they've already guessed that letter
