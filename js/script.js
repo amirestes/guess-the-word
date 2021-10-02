@@ -31,6 +31,10 @@ guessLetterButton.addEventListener("click", function(e) {
     letterInput.value = ""; //resets the form value to empty
     const correctGuess = validateInput(catchLetter); //originally put input as the argument which was incorrect
     console.log(correctGuess);
+
+    if (correctGuess) {
+        makeGuess(catchLetter);
+    }
 });
 
 //add a regular function to check if the input is a letter and only inputs one letter
@@ -52,13 +56,13 @@ const validateInput = function (input) {
 
 //add a function that captures the player's guess to see if they've already guessed that letter
 
-const makeGuess = function (guess) {
-    guess = guess.toUpperCase();
-    if ( guessedLetters.includes(guess) ) {
+const makeGuess = function (catchLetter) {
+    catchLetter = catchLetter.toUpperCase();
+    if ( guessedLetters.includes(catchLetter) ) {
         message.innerText = "You've already guessed this letter, guess again."
         
     } else {
-        guessedLetters.push(guess);
+        guessedLetters.push(catchLetter);
         console.log(guessedLetters);
     } 
 };
